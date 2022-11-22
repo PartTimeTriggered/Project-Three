@@ -14,18 +14,21 @@ count INTEGER
 );
 
 
-SELECT * FROM co2_emission;
+SELECT * FROM flu_data;
 --------------------------------------------------------------------------------------------------------------------
 
 -- Create  Table for GDP Per Capita
 CREATE TABLE covid_data (
 week TEXT,
-'state' TEXT,
-stste_abbrev TEXT PRIMARY KEY,
-confirmed TEXT,
-deaths TEXT
+'state' TEXT PRIMARY KEY,
+confirmed INT,
+recovered INT,
+deaths INT,
+confirmed_cum INT,
+recovered_cum INT,
+deaths_cum INT
 );
 
-SELECT * FROM gdp_per_capita;
+SELECT * FROM covid_data;
 
 ----------------------------------------------------------------------------------------------------------------------------
