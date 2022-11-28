@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Covid and Flu Timeseries Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script Access-Control-Allow-Origin: http://localhost:5000></script>
+    <!--<script type="text/javascript" src="../static/js/choropleth.js"></script>-->
+    <link rel="stylesheet" type="../static/css/style/css" href="style.css">
+</head>
+<body>
+    <div id="map"></div>
+    <div class="dropdown">
+        <select onchange="plot(value)"> 
+              <option value=0>ALL AUS</option>        
+              <option value=1>NSW</option>
+              <option value=2>VIC</option>           
+              <option value=3>QLD</option>
+              <option value=4>SA</option>
+              <option value=5>WA</option>
+              <option value=6>TAS</option>
+              <option value=7>NT</option>
+              <option value=8>ACT</option>
+          </select>
+        </div>
+      </div>
+      <div id="plot"</div>
+    <script>
+        let c_week = {{c_w|tojson}};
+        let f_week = {{f_w|tojson}};
+        let c_confirmed = {{c_c|tojson}};
+        let f_count = {{f_c|tojson}};
+    </script>
+    <!--<script type="text/javascript" src="{{url_for('static', filename = 'logic.js')}}"></script>-->
+    <script src="{{url_for('static', filename = 'plots.js')}}"></script>
+    <!--<script type="text/javascript" src="../static/plots.js"></script>-->
+</body>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+         height: 500px;
+         width: 100;
+    }
+    </style>
+<body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var location = {lat: -25.363, lng: 131.044};
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: location
+      });
+      var marker = new  google.maps.marker( {
+        position: location,
+        map: map
+      });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyD18Ba336CfH8ejip6XxTQ3byhLHLm213c&callback=initMap"> </script>
+    </body>
+
+</html>
